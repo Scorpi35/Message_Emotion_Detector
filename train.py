@@ -18,3 +18,14 @@ from keras.preprocessing.text import Tokenizer
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelBinarizer
 
+# Loading dataset
+dataset = pd.read_csv("dataset/text_emotion.csv")
+
+# Sentences
+X = []
+sentences = list(dataset['text'])
+
+
+
+# for sen in sentences:
+#     X.append(preprocess_text(sen))
