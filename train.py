@@ -21,11 +21,37 @@ from sklearn.preprocessing import LabelBinarizer
 # Loading dataset
 dataset = pd.read_csv("dataset/text_emotion.csv")
 
-# Sentences
+
+# Pre-processing function
+def preprocessing_text(sentence):
+
+    sentence = remove_tags(sentence)
+    # Remove punctuations and numbers
+
+    sentence = re.sub('[^a-zA-Z]', ' ', sentence)
+
+    # Single character removal
+    sentence = re.sub(r"\s+[a-zA-Z]\s+", ' ', sentence)
+
+    # Removing multiple spaces
+    sentence = re.sub(r'\s+', ' ', sentence)
+
+    return sentence
+
+
+TAG_RE = re.compile(r'<[^>]+>')
+
+
+# Remove tags
+def remove_tags(sentence):
+    return TAG_RE.sub('', sentence)
+
+
+# Pre-processed sentence
 X = []
 sentences = list(dataset['text'])
+for sentence in sentences:
+    X.append(preprocessing_text(sentence))
+    print(preprocessing_text(sentence))
 
 
-
-# for sen in sentences:
-#     X.append(preprocess_text(sen))
