@@ -53,7 +53,6 @@ X = []
 sentences = list(dataset['text'])
 for sentence in sentences:
     X.append(preprocessing_text(sentence))
-    print(preprocessing_text(sentence))
 
 
 y = dataset['label']
@@ -61,5 +60,17 @@ y = dataset['label']
 encoder = LabelBinarizer()
 y = encoder.fit_transform(y)
 
+
 # Split train and test set
-X_train, X_test, y_train, y_test = train_test_split(X, y, text_size=0.20, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
+
+
+# Tokenize sentences to numbers
+tokenizer = Tokenizer(num_words=10000)
+tokenizer.fit_on_texts(X_train)
+
+X_train = tokenizer.texts_to_sequences(X_train)
+X_test = tokenizer.texts_to_sequences(X_test)
+
+# Adding 1 because of reserved 0
+vocab_size = len(tokenizer.word_index) + 1
