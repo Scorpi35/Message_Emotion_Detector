@@ -25,15 +25,16 @@ dataset = pd.read_csv("dataset/text_emotion.csv")
 # Pre-processing function
 def preprocessing_text(sentence):
 
+    # HTML Tags
     sentence = remove_tags(sentence)
-    # Remove punctuations and numbers
 
+    # Punctuation and numbers
     sentence = re.sub('[^a-zA-Z]', ' ', sentence)
 
-    # Single character removal
+    # Single character
     sentence = re.sub(r"\s+[a-zA-Z]\s+", ' ', sentence)
 
-    # Removing multiple spaces
+    # Multiple spaces
     sentence = re.sub(r'\s+', ' ', sentence)
 
     return sentence
@@ -55,3 +56,10 @@ for sentence in sentences:
     print(preprocessing_text(sentence))
 
 
+y = dataset['label']
+# Binarize
+encoder = LabelBinarizer()
+y = encoder.fit_transform(y)
+
+# Split train and test set
+X_train, X_test, y_train, y_test = train_test_split(X, y, text_size=0.20, random_state=42)
