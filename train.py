@@ -74,3 +74,18 @@ X_test = tokenizer.texts_to_sequences(X_test)
 
 # Adding 1 because of reserved 0
 vocab_size = len(tokenizer.word_index) + 1
+
+max_len = 100
+
+# Pad sequences to max length with post padding.
+X_train = pad_sequences(X_train, padding='post', maxlen=max_len)
+X_test = pad_sequences(X_test, padding='post', maxlen=max_len)
+
+# Load embedding file
+embeddings_dictionary = dict()
+with open('../glove.6B.100d.txt', encoding="utf8") as glove_file:
+    for line in glove_file:
+        records = line.split()
+        word = records[0]
+        vector_dimensions = np.asarray(records[1:], dtype='float32')
+        embeddings_dictionary [word] = vector_dimensions
