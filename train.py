@@ -110,6 +110,14 @@ model = Sequential([
     Dense(7, activation="softmax")
 ])
 
+# compile model
+model.compile(optimizer="adam", loss='categorical_crossentropy', mectrics=['accuracy'])
+print("INFO: Starting Training")
 
+# Train model
+history = model.fit(X_train, y_train, batch_size=128, epochs=1, verbose=1, validation_split=0.2)
+
+# Save model, classes and tokenizer file
+model.save("model_final.model")
 
 
