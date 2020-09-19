@@ -89,3 +89,13 @@ with open('../glove.6B.100d.txt', encoding="utf8") as glove_file:
         word = records[0]
         vector_dimensions = np.asarray(records[1:], dtype='float32')
         embeddings_dictionary [word] = vector_dimensions
+
+
+embedding_matrix = np.zeros((vocab_size, 100))
+for word, index in tokenizer.word_index.items():
+    embedding_vector = embeddings_dictionary.get(word)
+    if embedding_vector is not None:
+        embedding_matrix[index] = embedding_vector
+print("INFO:- Creating Model")
+
+# Create a Keras LSTM model with bidirectional layers
