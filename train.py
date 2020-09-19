@@ -92,10 +92,24 @@ with open('../glove.6B.100d.txt', encoding="utf8") as glove_file:
 
 
 embedding_matrix = np.zeros((vocab_size, 100))
+print(tokenizer.word_index.items())
+
 for word, index in tokenizer.word_index.items():
     embedding_vector = embeddings_dictionary.get(word)
     if embedding_vector is not None:
         embedding_matrix[index] = embedding_vector
 print("INFO:- Creating Model")
 
-# Create a Keras LSTM model with bidirectional layers
+# LSTM Model with bidirectional layer
+model = Sequential([
+    Embedding(vocab_size, 100, weights=[embedding_matrix], input_length=maxlen, trainable=False),
+    Bidirectional(LSTM(50, dropout=0.2, recurrent_dropout=0.2, return_sequences=True)),
+    Bidirectional(LSTM(54, dropout=0.3, recurrent_dropout=0.3, return_sequences=True)),
+    Bidirectional(LSTM(60, dropout=0.3, recurrent_dropout=0.3)),
+    Dense(64, activation="relu"),
+    Dense(7, activation="softmax")
+])
+
+
+
+
