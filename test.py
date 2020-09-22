@@ -1,5 +1,5 @@
 import numpy as np
-import tensorflow
+import tensorflow as tf
 import pickle
 import re
 
@@ -50,4 +50,8 @@ sentence_processed = np.array(sentence_processed)
 sentence_padded = tf.keras.preprocessing.sequence.pad_sequences(sentence_processed, padding='post', maxlen=MAX_LENGTH)
 
 print("""[INFO]: Prediction\n\t{}""".format(sentence[0]))
-
+# Get prediction for sentence
+result = model.predict(sentence_padded)
+print("-"*20)
+# Show prediction
+print("[INFO]: Emotion class for given text is: {}".format(classNames[np.argmax(result)]))
