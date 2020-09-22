@@ -13,4 +13,7 @@ print("[INFO]: Loading Tokens")
 with open('./data/tokenizer.pickle', 'rb') as handle:
         Tokenizer = pickle.load(handle)
 
-print(Tokenizer.texts_to_sequences(sentence))
+print("[INFO]: Loading Model")
+model = tf.keras.models.load_model("./data/model_final.model")
+
+
