@@ -18,3 +18,12 @@ The project aims to detect emotions in messages.
 2. Tokenization
 3. Generate word embeddings
 4. Training LSTM Model with bidirectional layers
+
+## Result
+
+## Output
+
+## Future Extension
+* Integration of Plutchik's Wheel of Emotions
+* Analyzing context of conversation
+* Introducing time feature
