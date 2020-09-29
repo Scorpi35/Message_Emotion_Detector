@@ -1,4 +1,4 @@
-# Message_Emotion_Detector
+# Emotion detection from text
 
 ## Project Description
 **Sentiment Analysis** tends to evaluate 3 basic emotions:- **Positive, Neutral & Negative.** I tended to take things little farther and classify the text respective to 7 emotions:- **Anger, Disgust, Fea, Gult, Joy, Sadness and Shame**. This repository contains the dataset for training the model, basic sequential training proceure and testing of the model. The model has been illutratively implemented in a website where emotios behind messages are detected.
