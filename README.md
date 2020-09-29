@@ -1,9 +1,14 @@
 # Message_Emotion_Detector
 
 ## Project Description
-The project aims to detect emotions in messages. 
+**Sentiment Analysis** tends to evaluate 3 basic emotions:- **Positive, Neutral & Negative.** I tended to take things little farther and classify the text respective to 7 emotions:- **Anger, Disgust, Fea, Gult, Joy, Sadness and Shame**. This repository contains the dataset for training the model, basic sequential training proceure and testing of the model. The model has been illutratively implemented in a website where emotios behind messages are detected.
+
+## Website
+http://emotion-detection-messenger.herokuapp.com/message
 
 ## Key Concepts
+* Sentiment Analysis
+* Emotion Detection
 
 ## Dataset
 * **Name:-** ISEAR Dataset(https://www.kaggle.com/shrivastava/isears-dataset)
