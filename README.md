@@ -4,7 +4,7 @@
 **Sentiment Analysis** tends to evaluate 3 basic emotions:- **Positive, Neutral & Negative.** I tended to take things little farther and classify the text respective to 7 emotions:- **Anger, Disgust, Fear, Gult, Joy, Sadness and Shame**. This repository contains the dataset for training a model, basic sequential training procedure and testing of the model. The model has been illutratively implemented in a website where emotios behind messages are detected.
 
 ## Website
-http://emotion-detection-messenger.herokuapp.com/
+http://emotion-detection-messenger.herokuapp.com/ (**Note:-** Since the model has to be loaded, it might take some time.)
 
 ## Key Concepts
 * Sentiment Analysis
